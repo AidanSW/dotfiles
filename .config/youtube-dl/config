@@ -1,0 +1,3 @@
+--prefer-free-formats
+--default-search "ytsearch"
+--no-call-home

@@ -1,0 +1,120 @@
+[colors]
+background = #33666666
+foreground = #ddd
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/main]
+monitor = HDMI-1
+monitor-fallback = LVDS-1
+width= 100%
+height = 20
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+fixed-center = true
+
+padding-right = 1
+
+scroll-up = bspc desktop -f prev
+scroll-down = bspc desktop -f next
+
+wm-restack = bspwm
+
+font-0 = fixed:pixelsize=10;1
+font-1 = Roboto:pixelsize=10;2
+font-2 = siji:pixelsize=10;1
+font-3 = Noto Emoji:size=10;1
+
+modules-left = workspaces
+modules-center = time
+modules-right = fs sep volume sep wifi sep eth sep bat sep temp sep date
+
+[module/sep]
+type = custom/text
+content = " | "
+
+[module/workspaces]
+type = internal/bspwm
+
+enable-scroll = false
+
+pin-workspaces = false
+
+label-focused-foreground = #2f2
+#label-focused-underline = #f22
+
+label-dimmed-foreground = #777
+
+label-urgent-foreground = #f22
+[module/time]
+type = internal/date
+interval = 5.0
+date = 
+time = %I:%M %p
+#date-alt = %Y-%m-%d
+#time-alt = 
+
+label = %time%%date%
+
+[module/date]
+type = internal/date
+intervale = 60.0
+date = %Y-%m-%d
+
+[module/bat]
+type = internal/battery
+battery = BAT1
+;full-at = 100
+
+label-full = Full
+label-charging = Charging %percentage%%
+label-discharging = Discharging %percentage%% %time%
+;label-dis
+
+[module/temp]
+type = internal/temperature
+thermal-zone: 1
+
+[module/eth]
+type = internal/network
+interface = enp2s0
+label-disconnected = "no wired network"
+label-disconnected-foreground = #66ffff
+label-connected = eth %local_ip%
+
+[module/wifi]
+type = internal/network
+interface = wlp3s0
+interval = 5
+label-disconnected = "no wifi"
+label-disconnected-foreground = #ff66ffff
+label-connected = %essid% %signal%%
+
+[module/volume]
+type = internal/pulseaudio
+label-muted = %percentage%% (muted)
+label-muted-foreground = #ff2
+
+[module/fs]
+type = internal/fs
+mount-0 = /
+mount-1 = /home
+label-mounted = %mountpoint%: %percentage_used%%
+label-unmounted = %mountpoint%: not mounted
+
+[module/power]
+type = custom/menu
+
+label-open = ⏻
+label-close = cancel
+
+menu-0-0 = power off
+menu-0-0-exec = echo jk
+
+; vim:ft=dosini
