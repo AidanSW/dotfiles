@@ -65,7 +65,7 @@ label = %time%%date%
 [module/date]
 type = internal/date
 intervale = 60.0
-date = %Y-%m-%d
+date = %a %Y-%m-%d
 
 [module/bat]
 type = internal/battery
