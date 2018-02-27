@@ -1,3 +1,9 @@
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+"Plugin 'VundleVim/Vundle.vim'
+"Plugin 'Valloric/YouCompleteMe'
+"call vundle#end()
+
 set tabstop=4
 set shiftwidth=4
 set softtabstop=0
@@ -23,3 +29,5 @@ nnoremap <Space> i_<Esc>r
 set smartcase
 
 filetype plugin indent on
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete

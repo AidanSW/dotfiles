@@ -1,3 +1,7 @@
 --prefer-free-formats
 --default-search "ytsearch"
 --no-call-home
+--write-sub
+--write-auto-sub
+--sub-lang en
+--embed-subs
